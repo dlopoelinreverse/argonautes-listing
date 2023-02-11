@@ -2,7 +2,6 @@ const CandidateModel = require("../models/condidate.model");
 
 module.exports.getAllCandidates = async (req, res) => {
   const candidates = await CandidateModel.find();
-  console.log(candidates);
   res.status(200).send(candidates);
 };
 
