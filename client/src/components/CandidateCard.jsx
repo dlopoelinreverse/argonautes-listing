@@ -6,7 +6,7 @@ export default function CandidateCard({candidate}) {
   return (
     <li className='candidate-card'>
         <h4>{name}</h4>
-        <p>Agé de {age} ans</p>
+        <p>Age : {age} ans</p>
     </li>
   )
 }
