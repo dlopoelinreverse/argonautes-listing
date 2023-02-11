@@ -4,7 +4,6 @@ import Candidates from './Candidates';
 
 export default function Form() {
   const [candidatesData, setCandidatesData] = useState([]);
-  const [newCandidate, setNewCandidate]= useState(false);
   const inputName = useRef();
   const inputAge = useRef();
 
@@ -17,8 +16,9 @@ export default function Form() {
       axios.post(`${process.env.REACT_APP_API_URL}api/candidate`, {
         name, age
       })
-      .then(() => {
-        setNewCandidate(true);
+      .then((docs) => {        
+        const newCandidate = docs.data;
+        setCandidatesData((candidatesData) => [...candidatesData, newCandidate])
         inputName.current.value = "";
         inputAge.current.value = 12;
       })
@@ -31,8 +31,8 @@ export default function Form() {
   .get(`${process.env.REACT_APP_API_URL}api/candidate`)
   .then((res) => setCandidatesData(res.data))
   .catch((error) => console.log(error));
-  setNewCandidate(false);
-  }, [newCandidate])
+  console.log("Api Call");
+  }, [])
 
   return (
     <div className='form'>
