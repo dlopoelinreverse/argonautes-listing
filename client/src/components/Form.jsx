@@ -31,7 +31,6 @@ export default function Form() {
   .get(`${process.env.REACT_APP_API_URL}api/candidate`)
   .then((res) => setCandidatesData(res.data))
   .catch((error) => console.log(error));
-  console.log("Api Call");
   }, [])
 
   return (

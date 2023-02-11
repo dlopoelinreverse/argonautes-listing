@@ -4,7 +4,7 @@ const candidateRoutes = require("./routes/candidate.routes");
 const cors = require("cors");
 require("body-parser");
 require("dotenv").config({ path: ".env" });
-require("./mondodb.config.js");
+require("./mondodb.config");
 
 const app = express();
 
